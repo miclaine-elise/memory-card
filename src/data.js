@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 const pokemonArray = [];
 class Pokemon {
     constructor(name, img, id) {
@@ -13,6 +12,10 @@ class Pokemon {
         pokemonArray.push(this);
         // console.log(pokemonArray)
     }
+    clickedCard(clickedID) {
+        const card = pokemonArray.find((obj) => obj.id === clickedID);
+        card.clicked = true;
+    }
 }
 export default function fillPokemonArray() {
     const [finalArray, setPokemonArray] = useState([]);
@@ -23,14 +26,9 @@ export default function fillPokemonArray() {
                 for (let i = 1; i < 20; i++) {
                     const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + i, { mode: 'cors' });
                     const pokemon = await response.json();
-                    console.log(pokemon.name + i)
-                    new Pokemon(pokemon.name, pokemon.sprites.front_default, pokemon.id);
+                    let newPokemon = new Pokemon(pokemon.name, pokemon.sprites.other.dream_world.front_default, pokemon.id);
+                    // console.log(pokemon.name + i)
                 }
-                // return pokemonArray
-                // const response = await fetch('https://pokeapi.co/api/v2/pokemon/1', { mode: 'cors' });
-                // const pokemon = await response.json();
-                // new Pokemon(pokemon.name, pokemon.sprites.front_default, pokemon.id);
-                // console.log(pokemonArray)
                 setPokemonArray(pokemonArray)
             } catch (err) {
                 console.log(err);
@@ -39,7 +37,6 @@ export default function fillPokemonArray() {
         }
         fetchData();
     }, []);
-
-    // console.table(finalArray)
+    console.log(finalArray);
     return finalArray
 }

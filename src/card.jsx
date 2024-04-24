@@ -1,8 +1,10 @@
-export default function Card({ imgSrc }) {
+import React from 'react';
+
+export default function Card({ img, clicked, onClick }) {
     return (
-        <div>
-            <img src={imgSrc}></img>
-        </div>
+        <div className={["card", clicked].join(' ')} onClick={onClick} >
+            <img src={img}></img>
+        </div >
     )
 }
 
