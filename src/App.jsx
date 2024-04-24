@@ -6,21 +6,32 @@ import Grid from './Grid.jsx'
 
 function App() {
   console.log("reloading App");
-  const pokemonArray = fillPokemonArray();
+  const allPokemonArray = fillPokemonArray();
+  const displayedPokemonArray = shuffleArray(allPokemonArray);
   const [clicked, setClickedPokemon] = useState([]);
-  // setTimeout(function () { console.log(pokemonArray); }, 5000);
+  useEffect(() => {
+    shuffleArray(allPokemonArray);
+  }, [clicked]);
+
   const handleClick = (e) => {
-    let clickedPokemon = pokemonArray.find((element) => element.id === e);
+    let clickedPokemon = allPokemonArray.find((element) => element.id === e);
     clickedPokemon.clicked = true;
     console.log(clickedPokemon);
     const newClick = [e, ...clicked];
+    console.log(newClick);
     setClickedPokemon(newClick);
+  }
+  // Fisher-Yates Sorting Algorithm
+  function shuffleArray(array) {
+    array.sort(() => 0.5 - Math.random());
+    let shuffled = array.slice(0, 11);
+    return shuffled;
   }
   return (
     <>
       <h1>Memory Card Game</h1>
       <h2>Click each card only once!</h2>
-      <Grid array={pokemonArray} handleClick={handleClick} />
+      <Grid array={displayedPokemonArray} handleClick={handleClick} />
 
     </>
   )

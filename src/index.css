@@ -60,7 +60,11 @@ button:focus-visible {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.card img {
+  width: 5rem;
 }
 
 @media (prefers-color-scheme: light) {
