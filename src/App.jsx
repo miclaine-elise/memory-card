@@ -6,10 +6,8 @@ import Grid from './Grid.jsx'
 import Score from './Score.jsx'
 
 function App() {
-  console.log("reloading App");
   const allPokemonArray = fillPokemonArray();
   const displayedPokemonArray = shuffleArray(allPokemonArray);
-  console.log(displayedPokemonArray);
   const [clicked, setClickedPokemon] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -27,7 +25,6 @@ function App() {
       setCurrentScore(currentScore + 1);
 
     } else {
-      console.log("You already clicked that pokemon!");
       if (currentScore > highScore) {
         setHighScore(currentScore);
       }

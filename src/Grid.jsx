@@ -1,6 +1,5 @@
-import Card from './card.jsx'
+import Card from './Card.jsx'
 export default function Grid({ array, handleClick }) {
-    console.log("Grid being called");
     return (
         <div className="grid">
             {array.map((pokemon) => {
