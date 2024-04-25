@@ -73,9 +73,15 @@ button:focus-visible {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6rem, 10rem));
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
   grid-template-rows: auto auto auto;
   gap: 1rem;
+}
+
+.card {
+  display: grid;
+  align-content: center;
+  padding: 2rem;
 }
 
 .card img {
@@ -92,4 +98,34 @@ button:focus-visible {
 .score {
   border-radius: 1rem;
   border: 3px solid rgba(47, 47, 47, 0.87);
+}
+
+@media (max-width: 600px) {
+  #content {
+    grid-template-columns: auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 0.5rem;
+  }
+
+  .card img {
+    max-width: 4rem;
+    max-height: 4rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+  }
 }
