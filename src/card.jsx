@@ -10,7 +10,7 @@ export default function Card({ img, clicked, onClick }) {
     return (
         <div className={["card", clicked].join(' ')} onClick={onClick} >
             <img src={img}></img>
-            <p>{status}</p>
+            {/* <p>{status}</p> */}
         </div >
     )
 }

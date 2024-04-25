@@ -38,17 +38,19 @@ function App() {
   }
   function shuffleArray(array) {
     array.sort(() => 0.5 - Math.random());
-    let shuffled = array.slice(0, 11);
+    let shuffled = array.slice(0, 12);
     return shuffled;
   }
   return (
-    <>
-      <h1>Memory Card Game</h1>
-      <h2>Click each card only once!</h2>
-      <Score currentScore={currentScore} highScore={highScore} />
+    <div id="content">
+      <div>
+        <h1>CLICK EACH CARD ONLY ONCE</h1>
+        <Score currentScore={currentScore} highScore={highScore} />
+      </div>
+
       <Grid array={displayedPokemonArray} handleClick={handleClick} />
 
-    </>
+    </div>
   )
 
 }
